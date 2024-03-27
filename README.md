@@ -80,7 +80,7 @@ To deploy the plugin in your local NOMAD installation, follow the next steps:
     export PYTHONPATH="$PYTHONPATH:<path-to-nomad-parser-magres-cloned-repo>/src"
     ```
 
-If you are working in this repository, you just need to activate the environment to start working using the ```nomad-parser.magres``` package locally in your own Python scripts.
+If you are working in this repository, you just need to activate the environment to start working using the ```nomad-parser-magres``` package locally in your own Python scripts.
 
 ### Run linting and auto-formatting
 Ruff auto-formatting is also a part of the GitHub workflow actions. Make sure that before you make a Pull Request to add your contributions to this repo, the following commands run in your local without any errors otherwise the workflow action will fail.
