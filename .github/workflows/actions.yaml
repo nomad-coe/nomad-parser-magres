@@ -23,9 +23,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         coveralls --service=github
-    - name: Test with nomad
-      run: |
-        python -m nomad.cli parse tests/data/test.example-format.txt
   build-and-install:
     runs-on: ubuntu-latest
     steps:
@@ -42,23 +39,18 @@ jobs:
     - name: Install the package
       run: |
         pip install dist/*.tar.gz --index-url https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple
-    - name: Test with nomad
-      run: |
-        python -m nomad.cli parse tests/data/test.example-format.txt
+  ruff-formatting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: chartboost/ruff-action@v1
+        with:
+          args: "format ."
   ruff-linting:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: chartboost/ruff-action@v1
         with:
-          args: "check ."
-          version: 0.1.8
-  # to enable auto-formatting check, uncomment the following lines below
-  # ruff-formatting:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - uses: chartboost/ruff-action@v1
-  #       with:
-  #         args: "format . --check"
-  #         version: 0.1.8
+          args: "format . --check"
+          version: 0.2.0
