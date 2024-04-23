@@ -45,7 +45,7 @@ from nomad_parser_magres.schema import m_package
 # For the automatic workflow NMR
 from nomad.search import search
 from nomad.app.v1.models import MetadataRequired
-from ..utils import BeyondDFTWorkflowsParser
+from .utils import BeyondDFTWorkflowsParser
 
 
 re_float = r' *[-+]?\d+\.\d*(?:[Ee][-+]\d+)? *'

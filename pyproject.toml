@@ -22,7 +22,9 @@ classifiers = [
     "License :: OSI Approved :: Apache Software License",
 ]
 dependencies = [
-    "nomad-lab>=1.2.2dev457",
+    "nomad-lab@git+https://github.com/nomad-coe/nomad.git@develop",
+    "nomad-schema-plugin-simulation-workflow@git+https://github.com/nomad-coe/nomad-schema-plugin-simulation-workflow.git@develop",
+    "nomad-schema-plugin-run@git+https://github.com/nomad-coe/nomad-schema-plugin-run.git@develop",
 ]
 
 [project.urls]
@@ -41,6 +43,7 @@ dev = [
     "unidecode==1.3.2",
     "fastapi==0.92.0",
     "zipstream-new==1.1.5",
+    "lxml_html_clean>=0.1.0",
 ]
 
 [tool.ruff]
@@ -93,4 +96,4 @@ line-ending = "auto"
 where = ["src"]
 
 [tool.setuptools.package-data]
-nomad_analysis = ['*/nomad_plugin.yaml']
+nomad_parser_magres = ['*/nomad_plugin.yaml']

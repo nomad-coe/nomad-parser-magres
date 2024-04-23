@@ -34,7 +34,12 @@ def parser():
 
 def test_single_point_ethanol(parser):
     archive = EntryArchive()
-    parser.parse('tests/data/magres/ethanol_nmr.magres', archive, None)
+    parser.parse(
+        '/home/josepizarro/nomad-parser-magres/tests/data/ethanol_nmr.magres',
+        archive,
+        None,
+    )
+    # parser.parse('tests/data/magres/ethanol_nmr.magres', archive, None)
     sec_run = archive.run[-1]
 
     # Program testing
