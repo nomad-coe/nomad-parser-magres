@@ -18,6 +18,7 @@
 
 import pytest
 import numpy as np
+import os
 
 from nomad.datamodel import EntryArchive
 from nomad_parser_magres.parser import MagresParser
@@ -35,11 +36,10 @@ def parser():
 def test_single_point_ethanol(parser):
     archive = EntryArchive()
     parser.parse(
-        '/home/josepizarro/nomad-parser-magres/tests/data/ethanol_nmr.magres',
+        os.path.join(os.path.dirname(__file__), 'data/ethanol_nmr.magres'),
         archive,
         None,
     )
-    # parser.parse('tests/data/magres/ethanol_nmr.magres', archive, None)
     sec_run = archive.run[-1]
 
     # Program testing

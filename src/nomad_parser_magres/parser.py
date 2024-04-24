@@ -445,7 +445,7 @@ class MagresParser(BeyondDFTWorkflowsParser):
 
         # Create Run with Program information
         sec_run = Run()
-        calculation_params = self.magres_file_parser.get('calculation')
+        calculation_params = self.magres_file_parser.get('calculation', {})
         program_name = calculation_params.get('code', '')
         if program_name != 'CASTEP':
             self.logger.error(
