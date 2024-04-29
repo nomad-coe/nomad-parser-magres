@@ -34,7 +34,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-    "ruff>=0.2.0",
+    "ruff",
     "pytest",
     "structlog==22.3.0",
     "python-logstash==0.4.6",
