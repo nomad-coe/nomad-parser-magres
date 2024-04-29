@@ -67,12 +67,25 @@ To deploy the plugin in your local NOMAD installation, follow the next steps:
     and the ```nomad.yaml``` configuration file:
 
     ```yaml
+    normalize:
+      normalizers:
+        include:
+          - MetainfoNormalizer
     plugins:
+      # We only include our schema here. Without the explicit include, all plugins will be
+      # loaded. Many build in plugins require more dependencies. Install nomad-lab[parsing]
+      # to make all default plugins work.
       include:
         - 'parsers/magres'
+        - 'runschema'
+        - 'simulationworkflowschema'
       options:
         parsers/magres:
           python_package: nomad_parser_magres
+        runschema:
+          python_package: runschema
+        simulationworkflowschema:
+          python_package: simulationworkflowschema
     ```
 3. Add to your local NOMAD installation the same lines of your plugin ```nomad.yaml``` file.
 4. Add to your local NOMAD installation environment the `PYTHONPATH` to your plugin. This can be done either by running the following command every time you start a new terminal for running the appworker, or by adding it to your virtual environment in the `<path-to-local-nomad-installation>/.pyenv/bin/activate` file:
