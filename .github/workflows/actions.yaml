@@ -53,4 +53,3 @@ jobs:
       - uses: chartboost/ruff-action@v1
         with:
           args: "format . --check"
-          version: 0.2.0
