@@ -8,12 +8,6 @@ plugins:
   # to make all default plugins work.
   include:
     - 'parsers/magres'
-    - 'runschema'
-    - 'simulationworkflowschema'
   options:
     parsers/magres:
       python_package: nomad_parser_magres
-    runschema:
-      python_package: runschema
-    simulationworkflowschema:
-      python_package: simulationworkflowschema
